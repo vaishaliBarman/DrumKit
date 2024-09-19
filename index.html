@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drum Kit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url("https://wallpaper.forfun.com/fetch/95/95928cc9ff11631de6a7a16df05425f5.jpeg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        font-family: Arial, sans-serif;
+    }
+
+    .drum-container {
+        display: flex;
+        gap: 20px;
+    }
+
+    .drum-box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1px;
+        border: 1px solid #e97f1c;
+        border-radius: 5px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        animation: fire-border 1.5s infinite;
+    }
+
+    /* Keyframes for fire effect animation */
+    @keyframes fire-border {
+        0% {
+            border-color: #e97f1c;
+            box-shadow: 0 0 10px #e97f1c, 0 0 20px rgba(233, 127, 28, 0.7), 0 0 30px rgba(255, 102, 0, 0.6);
+        }
+
+        50% {
+            border-color: #ff4500;
+            /* Slightly brighter fire */
+            box-shadow: 0 0 15px #ff4500, 0 0 30px rgba(255, 69, 0, 0.8), 0 0 40px rgba(255, 140, 0, 0.7);
+        }
+
+        100% {
+            border-color: #e97f1c;
+            box-shadow: 0 0 10px #e97f1c, 0 0 20px rgba(233, 127, 28, 0.7), 0 0 30px rgba(255, 102, 0, 0.6);
+        }
+    }
+
+
+    .drum {
+        padding: 20px 40px;
+        font-size: 24px;
+        border: 2px solid #e97f1c;
+        /* Add a border if you want the outline visible */
+        border-radius: 5px;
+        background-color: transparent;
+        /* Fully transparent background */
+        color: white;
+        /* Change text color to match the original background */
+        cursor: pointer;
+        font-weight: bolder;
+        transition: 1.2s;
+        /* Smooth transition effect */
+    }
+
+    .drum:hover {
+        background-image: linear-gradient(rgb(230, 118, 44), rgb(218, 68, 42));
+        /* Correct gradient */
+        color: white;
+    }
+
+
+    .drum:active {
+        transform: scale(1.95);
+        background-color: #dd2417;
+    }
+
+    /* Media Queries for responsiveness */
+
+    /* For tablets and below */
+    @media (max-width: 768px) {
+        .drum-container {
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .drum-box {
+            width: 80px;
+            height: 80px;
+        }
+
+        .drum {
+            padding: 15px 25px;
+            font-size: 18px;
+            font-weight: bolder;
+        }
+    }
+
+    /* For mobile phones */
+    @media (max-width: 480px) {
+        body {
+            flex-direction: column;
+        }
+
+        .drum-container {
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .drum-box {
+            width: 60px;
+            height: 60px;
+            border: 1px solid #e97f1c;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .drum {
+            padding: 20px 24px;
+            font-size: 16px;
+            border: 0px solid #e97f1c;
+        }
+    }
+</style>
+
+<body>
+    <div class="drum-container">
+        <!-- Each button inside its own div -->
+        <div class="drum-box">
+            <button class="drum" data-key="V">V</button>
+        </div>
+        <div class="drum-box">
+            <button class="drum" data-key="A">A</button>
+        </div>
+        <div class="drum-box">
+            <button class="drum" data-key="I">I</button>
+        </div>
+        <div class="drum-box">
+            <button class="drum" data-key="S">S</button>
+        </div>
+        <div class="drum-box">
+            <button class="drum" data-key="H">H</button>
+        </div>
+        <div class="drum-box">
+            <button class="drum" data-key="U">U</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
